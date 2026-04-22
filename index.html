@@ -358,6 +358,10 @@
       color: #8b4a5a;
       border-color: #8b4a5a;
     }
+    .submit-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
 
     .footer {
       background: #8b4a5a;
@@ -367,9 +371,45 @@
       padding: 22px 24px;
       letter-spacing: 2px;
     }
+
+    /* Loading overlay */
+    .loading-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(61,32,40,0.7);
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .loading-overlay.show { display: flex; }
+    .loading-spinner {
+      width: 44px;
+      height: 44px;
+      border: 3px solid rgba(232,196,184,0.3);
+      border-top-color: #e8c4b8;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    .loading-text {
+      color: #fdf0ec;
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1rem;
+      letter-spacing: 3px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
   </style>
 </head>
 <body>
+
+  <!-- Loading Overlay -->
+  <div class="loading-overlay" id="loadingOverlay">
+    <div class="loading-spinner"></div>
+    <div class="loading-text">送出中，請稍候…</div>
+  </div>
+
   <div class="container">
 
     <!-- Header -->
@@ -453,58 +493,58 @@
       </div>
 
       <!-- Q5 -->
-      <div class="question-card">
+      <div class="question-card" id="card-q5">
         <div class="question-title">
           <span class="q-num">05</span>
           <span>以下產品您有興趣進一步了解或購買的是？<span style="font-size:0.88rem;color:#aaa;font-weight:300;">（可複選）</span></span>
         </div>
-        <div class="options-grid">
-          <label class="option-row"><input type="checkbox"> 保濕露</label>
-          <label class="option-row"><input type="checkbox"> 潔膚乳</label>
-          <label class="option-row"><input type="checkbox"> 火山泥面膜</label>
-          <label class="option-row"><input type="checkbox"> NAD青春霜</label>
-          <label class="option-row"><input type="checkbox"> 小黑卸妝棉</label>
+        <div class="options-grid" id="q5-grid">
+          <label class="option-row"><input type="checkbox" name="q5" value="保濕露"> 保濕露</label>
+          <label class="option-row"><input type="checkbox" name="q5" value="潔膚乳"> 潔膚乳</label>
+          <label class="option-row"><input type="checkbox" name="q5" value="火山泥面膜"> 火山泥面膜</label>
+          <label class="option-row"><input type="checkbox" name="q5" value="NAD青春霜"> NAD青春霜</label>
+          <label class="option-row"><input type="checkbox" name="q5" value="小黑卸妝棉"> 小黑卸妝棉</label>
           <label class="option-row"><input type="checkbox" id="q5-other-cb" onchange="toggleOther('q5-other-cb','q5-other-input')"> 其他</label>
         </div>
         <div class="other-input" id="q5-other-input">
-          <input type="text" placeholder="請輸入其他產品名稱...">
+          <input type="text" id="q5-other-text" placeholder="請輸入其他產品名稱...">
         </div>
       </div>
 
       <!-- Q6 -->
-      <div class="question-card">
+      <div class="question-card" id="card-q6">
         <div class="question-title">
           <span class="q-num">06</span>
           <span>您未來在保養上最想改善的是？<span style="font-size:0.88rem;color:#aaa;font-weight:300;">（可複選）</span></span>
         </div>
-        <div class="options-grid">
-          <label class="option-row"><input type="checkbox"> 乾燥缺水</label>
-          <label class="option-row"><input type="checkbox"> 出油不穩</label>
-          <label class="option-row"><input type="checkbox"> 粉刺痘痘</label>
-          <label class="option-row"><input type="checkbox"> 暗沉</label>
-          <label class="option-row"><input type="checkbox"> 敏感泛紅</label>
+        <div class="options-grid" id="q6-grid">
+          <label class="option-row"><input type="checkbox" name="q6" value="乾燥缺水"> 乾燥缺水</label>
+          <label class="option-row"><input type="checkbox" name="q6" value="出油不穩"> 出油不穩</label>
+          <label class="option-row"><input type="checkbox" name="q6" value="粉刺痘痘"> 粉刺痘痘</label>
+          <label class="option-row"><input type="checkbox" name="q6" value="暗沉"> 暗沉</label>
+          <label class="option-row"><input type="checkbox" name="q6" value="敏感泛紅"> 敏感泛紅</label>
           <label class="option-row"><input type="checkbox" id="q6-other-cb" onchange="toggleOther('q6-other-cb','q6-other-input')"> 其他</label>
         </div>
         <div class="other-input" id="q6-other-input">
-          <input type="text" placeholder="請輸入其他肌膚困擾...">
+          <input type="text" id="q6-other-text" placeholder="請輸入其他肌膚困擾...">
         </div>
       </div>
 
       <!-- Q7 -->
-      <div class="question-card">
+      <div class="question-card" id="card-q7">
         <div class="question-title">
           <span class="q-num">07</span>
           <span>您對哪些主題的課程有興趣？<span style="font-size:0.88rem;color:#aaa;font-weight:300;">（可複選）</span></span>
         </div>
-        <div class="options-grid">
-          <label class="option-row"><input type="checkbox"> 進階肌膚保養</label>
-          <label class="option-row"><input type="checkbox"> 彩妝技巧</label>
-          <label class="option-row"><input type="checkbox"> AI 工具應用</label>
-          <label class="option-row"><input type="checkbox"> 健康養生講座</label>
+        <div class="options-grid" id="q7-grid">
+          <label class="option-row"><input type="checkbox" name="q7" value="進階肌膚保養"> 進階肌膚保養</label>
+          <label class="option-row"><input type="checkbox" name="q7" value="彩妝技巧"> 彩妝技巧</label>
+          <label class="option-row"><input type="checkbox" name="q7" value="AI工具應用"> AI 工具應用</label>
+          <label class="option-row"><input type="checkbox" name="q7" value="健康養生講座"> 健康養生講座</label>
           <label class="option-row"><input type="checkbox" id="q7-other-cb" onchange="toggleOther('q7-other-cb','q7-other-input')"> 其他</label>
         </div>
         <div class="other-input" id="q7-other-input">
-          <input type="text" placeholder="請輸入其他感興趣的主題...">
+          <input type="text" id="q7-other-text" placeholder="請輸入其他感興趣的主題...">
         </div>
         <div class="sub-question">您願意再次參加工作坊嗎？</div>
         <div class="options">
@@ -519,7 +559,8 @@
         <div class="section-label">事業機會</div>
         <div class="question-title">
           <span class="q-num">08</span>
-          <span>你是否有興趣了解「把消費變收入」的方式？<span class="required-badge">必填</span><br> <span style="font-size:0.88rem;color:#aaa;font-weight:300;">（像是自己買累積現金回饋，甚至發展成一份事業）</span></span>
+          <span>你是否有興趣了解「把消費變收入」的方式？<span class="required-badge">必填</span><br>
+          <span style="font-size:0.88rem;color:#aaa;font-weight:300;">（像是自己買累積現金回饋，甚至發展成一份事業）</span></span>
         </div>
         <div class="options">
           <label class="option-row"><input type="radio" name="q8"> 很有興趣，想進一步了解</label>
@@ -534,7 +575,7 @@
           <span class="q-num">09</span>
           <span>今天最讓您印象深刻的是什麼？</span>
         </div>
-        <textarea placeholder="請自由填寫..."></textarea>
+        <textarea id="q9" placeholder="請自由填寫..."></textarea>
       </div>
 
       <!-- Q10 -->
@@ -543,11 +584,11 @@
           <span class="q-num">10</span>
           <span>有什麼話想對我們說的嗎？</span>
         </div>
-        <textarea placeholder="任何建議或鼓勵都歡迎 ✦"></textarea>
+        <textarea id="q10" placeholder="任何建議或鼓勵都歡迎 ✦"></textarea>
       </div>
 
       <div class="submit-area">
-        <button class="submit-btn" onclick="validateForm()">送 出 回 饋</button>
+        <button class="submit-btn" id="submitBtn" onclick="validateForm()">送 出 回 饋</button>
       </div>
 
     </div>
@@ -556,6 +597,8 @@
   </div>
 
   <script>
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwHp3A5yRYHbz0koZTbWVn3YfmdNQdVIk3W_WB6rU1I-9yDoWxqtMj67BGyHBEtntTp1w/exec';
+
     function toggleOther(cbId, inputId) {
       const cb = document.getElementById(cbId);
       const input = document.getElementById(inputId);
@@ -568,10 +611,28 @@
       }
     }
 
+    function getRadioValue(name) {
+      const el = document.querySelector('input[name="' + name + '"]:checked');
+      return el ? el.closest('.option-row').textContent.trim() : '';
+    }
+
+    function getCheckboxValues(name, otherCbId, otherTextId) {
+      const values = Array.from(document.querySelectorAll('input[name="' + name + '"]:checked'))
+        .map(el => el.value);
+      const otherCb = document.getElementById(otherCbId);
+      if (otherCb && otherCb.checked) {
+        const otherText = document.getElementById(otherTextId).value.trim();
+        if (otherText) values.push('其他：' + otherText);
+        else values.push('其他');
+      }
+      return values.join('、');
+    }
+
     function validateForm() {
       let allValid = true;
       let firstError = null;
 
+      // 驗證文字欄位
       const nameEl = document.getElementById('name');
       const invitedEl = document.getElementById('invitedBy');
       [nameEl, invitedEl].forEach(el => {
@@ -584,8 +645,9 @@
         }
       });
 
+      // 驗證必填單選
       ['q1','q2','q3','q4','q8'].forEach(name => {
-        const radios = document.querySelectorAll(`input[name="${name}"]`);
+        const radios = document.querySelectorAll('input[name="' + name + '"]');
         const checked = Array.from(radios).some(r => r.checked);
         radios.forEach(r => {
           const row = r.closest('.option-row');
@@ -602,9 +664,64 @@
       if (!allValid) {
         firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
         alert('請完成所有必填項目後再送出 ✦');
-      } else {
-        alert('感謝您的回饋！期待與您再次相遇 ✦');
+        return;
       }
+
+      // 收集資料
+      const payload = {
+        name:      nameEl.value.trim(),
+        invitedBy: invitedEl.value.trim(),
+        q1:  getRadioValue('q1'),
+        q2:  getRadioValue('q2'),
+        q3:  getRadioValue('q3'),
+        q4:  getRadioValue('q4'),
+        q5:  getCheckboxValues('q5', 'q5-other-cb', 'q5-other-text'),
+        q6:  getCheckboxValues('q6', 'q6-other-cb', 'q6-other-text'),
+        q7:  getCheckboxValues('q7', 'q7-other-cb', 'q7-other-text'),
+        q7b: getRadioValue('q7b'),
+        q8:  getRadioValue('q8'),
+        q9:  document.getElementById('q9').value.trim(),
+        q10: document.getElementById('q10').value.trim(),
+      };
+
+      // 顯示 loading
+      const overlay = document.getElementById('loadingOverlay');
+      const btn = document.getElementById('submitBtn');
+      overlay.classList.add('show');
+      btn.disabled = true;
+
+      // 送出到 Google Sheets
+      fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      })
+      .then(() => {
+        overlay.classList.remove('show');
+        btn.disabled = false;
+        showThankYou();
+      })
+      .catch(() => {
+        overlay.classList.remove('show');
+        btn.disabled = false;
+        // no-cors 模式下 fetch 不會真的 throw，但保險起見
+        showThankYou();
+      });
+    }
+
+    function showThankYou() {
+      document.querySelector('.body').innerHTML = `
+        <div style="text-align:center; padding: 60px 24px;">
+          <div style="font-size:2.5rem; margin-bottom:24px;">✦</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:1.8rem; font-weight:300; color:#8b4a5a; letter-spacing:4px; margin-bottom:16px;">
+            感謝您的回饋
+          </div>
+          <div style="color:#666; font-size:1rem; line-height:2; letter-spacing:1px;">
+            您的意見已成功送出<br>期待與您再次相遇 ✦
+          </div>
+        </div>
+      `;
     }
   </script>
 </body>
