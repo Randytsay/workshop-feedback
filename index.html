@@ -21,7 +21,7 @@
 
     body {
       font-family: 'Noto Serif TC', serif;
-      background: #3d2028;
+      background: #6e5b43;
       min-height: 100vh;
       padding: 24px 12px;
       color: #2c2c2c;
@@ -31,7 +31,7 @@
     .container {
       max-width: 640px;
       margin: 0 auto;
-      background: #fdf7f7;
+      background: #fcfaf6;
       border-radius: 4px;
       overflow: hidden;
       box-shadow: 0 24px 80px rgba(0,0,0,0.4);
@@ -39,7 +39,7 @@
 
     /* Header */
     .header {
-      background: #8b4a5a;
+      background: #b8955a;
       padding: 48px 28px 40px;
       text-align: center;
       position: relative;
@@ -53,28 +53,28 @@
         45deg,
         transparent,
         transparent 40px,
-        rgba(255,220,210,0.05) 40px,
-        rgba(255,220,210,0.05) 41px
+        rgba(231,215,183,0.08) 40px,
+        rgba(231,215,183,0.08) 41px
       );
     }
     .gold-line {
       width: 48px;
       height: 1px;
-      background: linear-gradient(90deg, transparent, #e8c4b8, transparent);
+      background: linear-gradient(90deg, transparent, #e7d7b7, transparent);
       margin: 0 auto 20px;
     }
     .header h1 {
       font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
       font-size: 2rem;
       font-weight: 300;
-      color: #fdf0ec;
+      color: #f8f3ea;
       letter-spacing: 4px;
       margin-bottom: 12px;
       position: relative;
     }
     .header .subtitle {
       font-size: 0.85rem;
-      color: #e8c4b8;
+      color: #e7d7b7;
       letter-spacing: 3px;
       text-transform: uppercase;
       margin-bottom: 16px;
@@ -82,7 +82,7 @@
     }
     .header p {
       font-size: 1rem;
-      color: rgba(253,240,236,0.75);
+      color: rgba(248,243,234,0.8);
       line-height: 1.9;
       position: relative;
       font-weight: 300;
@@ -90,7 +90,7 @@
     .gold-line-bottom {
       width: 80px;
       height: 1px;
-      background: linear-gradient(90deg, transparent, #e8c4b8, transparent);
+      background: linear-gradient(90deg, transparent, #e7d7b7, transparent);
       margin: 20px auto 0;
     }
 
@@ -101,8 +101,8 @@
     .required-badge {
       display: inline-block;
       font-size: 0.78rem;
-      color: #8b4a5a;
-      border: 1px solid #8b4a5a;
+      color: #b8955a;
+      border: 1px solid #b8955a;
       padding: 2px 8px;
       border-radius: 2px;
       margin-left: 8px;
@@ -115,12 +115,12 @@
     .info-section {
       margin-bottom: 36px;
       padding-bottom: 32px;
-      border-bottom: 1px solid #e8d8d8;
+      border-bottom: 1px solid #dccfb8;
     }
     .section-label {
       font-size: 0.78rem;
       letter-spacing: 3px;
-      color: #8b4a5a;
+      color: #b8955a;
       text-transform: uppercase;
       margin-bottom: 22px;
       display: flex;
@@ -131,14 +131,14 @@
       content: '';
       flex: 1;
       height: 1px;
-      background: linear-gradient(90deg, #e8c4b8, transparent);
+      background: linear-gradient(90deg, #e7d7b7, transparent);
     }
     .info-row { margin-bottom: 26px; }
     .info-row:last-child { margin-bottom: 0; }
     .info-row label {
       display: block;
       font-size: 0.88rem;
-      color: #999;
+      color: #8f8068;
       letter-spacing: 1.5px;
       margin-bottom: 10px;
       font-family: sans-serif;
@@ -146,7 +146,7 @@
     .info-row input {
       width: 100%;
       border: none;
-      border-bottom: 1px solid #d4b8b8;
+      border-bottom: 1px solid #dccfb8;
       background: transparent;
       padding: 10px 0;
       font-size: 1.1rem;
@@ -155,13 +155,13 @@
       transition: border-color 0.3s;
       font-family: 'Noto Serif TC', serif;
     }
-    .info-row input:focus { border-bottom-color: #8b4a5a; }
+    .info-row input:focus { border-bottom-color: #b8955a; }
 
     /* Question Card */
     .question-card {
       margin-bottom: 32px;
       padding-bottom: 32px;
-      border-bottom: 1px solid #e8d8d8;
+      border-bottom: 1px solid #dccfb8;
     }
 
     .question-title {
@@ -177,7 +177,7 @@
     .q-num {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.3rem;
-      color: #8b4a5a;
+      color: #b8955a;
       font-weight: 300;
       flex-shrink: 0;
       min-width: 26px;
@@ -199,7 +199,7 @@
       gap: 14px;
       cursor: pointer;
       padding: 15px 18px;
-      border: 1px solid #e0cece;
+      border: 1px solid #dccfb8;
       background: #fff;
       transition: all 0.25s;
       font-size: 1rem;
@@ -209,8 +209,8 @@
       line-height: 1.5;
     }
     .option-row:hover {
-      border-color: #8b4a5a;
-      background: #fdf0f2;
+      border-color: #b8955a;
+      background: #f6efe3;
       color: #1a1a1a;
     }
     .option-row input[type="radio"],
@@ -219,7 +219,7 @@
       -webkit-appearance: none;
       width: 18px;
       height: 18px;
-      border: 1.5px solid #c0a0a0;
+      border: 1.5px solid #b8955a;
       background: #fff;
       flex-shrink: 0;
       cursor: pointer;
@@ -228,20 +228,20 @@
     }
     .option-row input[type="radio"] { border-radius: 50%; }
     .option-row input[type="radio"]:checked {
-      background: #8b4a5a;
-      border-color: #8b4a5a;
+      background: #b8955a;
+      border-color: #b8955a;
       box-shadow: inset 0 0 0 4px #fff;
     }
     .option-row input[type="checkbox"]:checked {
-      background: #8b4a5a;
-      border-color: #8b4a5a;
+      background: #b8955a;
+      border-color: #b8955a;
     }
     .option-row input[type="checkbox"]:checked::after {
       content: '';
       position: absolute;
       left: 4px; top: 1px;
       width: 6px; height: 10px;
-      border: 2px solid #e8c4b8;
+      border: 2px solid #e7d7b7;
       border-top: none;
       border-left: none;
       transform: rotate(45deg);
@@ -257,7 +257,7 @@
     .other-input input {
       width: 100%;
       border: none;
-      border-bottom: 1.5px solid #8b4a5a;
+      border-bottom: 1.5px solid #b8955a;
       background: transparent;
       padding: 10px 0;
       font-size: 1rem;
@@ -265,56 +265,25 @@
       outline: none;
       font-family: 'Noto Serif TC', serif;
     }
-    .other-input input::placeholder { color: #c0a0a0; font-size: 0.92rem; }
+    .other-input input::placeholder { color: #b8955a; font-size: 0.92rem; }
 
-    /* Business Section */
+    /* Business Section — normalized to match question-card */
     .business-section {
-      background: #8b4a5a;
-      margin: 0 -24px;
-      padding: 32px 24px;
       margin-bottom: 32px;
-    }
-    .business-section .section-label { color: #e8c4b8; }
-    .business-section .section-label::after {
-      background: linear-gradient(90deg, rgba(232,196,184,0.4), transparent);
-    }
-    .business-section .question-title { color: #fdf0ec; }
-    .business-section .q-num { color: #e8c4b8; }
-    .business-section .option-row {
-      border-color: rgba(232,196,184,0.3);
-      background: rgba(255,255,255,0.06);
-      color: #f0ddd8;
-      font-size: 1rem;
-    }
-    .business-section .option-row:hover {
-      border-color: #e8c4b8;
-      background: rgba(232,196,184,0.15);
-      color: #fdf0ec;
-    }
-    .business-section .option-row input[type="radio"] {
-      border-color: rgba(232,196,184,0.6);
-      background: transparent;
-    }
-    .business-section .option-row input[type="radio"]:checked {
-      background: #e8c4b8;
-      border-color: #e8c4b8;
-      box-shadow: inset 0 0 0 4px #8b4a5a;
-    }
-    .business-section .required-badge {
-      border-color: rgba(232,196,184,0.7);
-      color: #e8c4b8;
+      padding-bottom: 32px;
+      border-bottom: 1px solid #dccfb8;
     }
 
     /* Open Questions */
     .open-section {
       margin-bottom: 32px;
       padding-bottom: 32px;
-      border-bottom: 1px solid #e8d8d8;
+      border-bottom: 1px solid #dccfb8;
     }
     .open-section textarea {
       width: calc(100% - 38px);
       margin-left: 38px;
-      border: 1px solid #e0cece;
+      border: 1px solid #dccfb8;
       background: #fff;
       padding: 16px 18px;
       font-size: 1rem;
@@ -326,12 +295,12 @@
       transition: border-color 0.3s;
       line-height: 1.8;
     }
-    .open-section textarea:focus { border-color: #8b4a5a; }
+    .open-section textarea:focus { border-color: #b8955a; }
 
     /* Sub question */
     .sub-question {
       font-size: 0.92rem;
-      color: #999;
+      color: #8f8068;
       letter-spacing: 0.5px;
       margin-bottom: 14px;
       padding-left: 38px;
@@ -343,9 +312,9 @@
     .submit-btn {
       display: inline-block;
       padding: 20px 60px;
-      background: #8b4a5a;
-      color: #fdf0ec;
-      border: 1px solid #8b4a5a;
+      background: #b8955a;
+      color: #f8f3ea;
+      border: 1px solid #b8955a;
       font-size: 1.05rem;
       font-weight: 400;
       cursor: pointer;
@@ -354,9 +323,9 @@
       transition: all 0.3s;
     }
     .submit-btn:hover {
-      background: #fdf0ec;
-      color: #8b4a5a;
-      border-color: #8b4a5a;
+      background: #f8f3ea;
+      color: #b8955a;
+      border-color: #b8955a;
     }
     .submit-btn:disabled {
       opacity: 0.6;
@@ -364,10 +333,10 @@
     }
 
     .footer {
-      background: #8b4a5a;
+      background: #b8955a;
       text-align: center;
       font-size: 0.85rem;
-      color: rgba(232,196,184,0.7);
+      color: rgba(231,215,183,0.75);
       padding: 22px 24px;
       letter-spacing: 2px;
     }
@@ -377,7 +346,7 @@
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(61,32,40,0.7);
+      background: rgba(110,91,67,0.75);
       z-index: 999;
       align-items: center;
       justify-content: center;
@@ -388,13 +357,13 @@
     .loading-spinner {
       width: 44px;
       height: 44px;
-      border: 3px solid rgba(232,196,184,0.3);
-      border-top-color: #e8c4b8;
+      border: 3px solid rgba(231,215,183,0.3);
+      border-top-color: #e7d7b7;
       border-radius: 50%;
       animation: spin 0.8s linear infinite;
     }
     .loading-text {
-      color: #fdf0ec;
+      color: #f8f3ea;
       font-family: 'Noto Serif TC', serif;
       font-size: 1rem;
       letter-spacing: 3px;
@@ -496,7 +465,7 @@
       <div class="question-card" id="card-q5">
         <div class="question-title">
           <span class="q-num">05</span>
-          <span>以下產品您有興趣進一步了解或購買的是？<span style="font-size:0.88rem;color:#aaa;font-weight:300;">（可複選）</span></span>
+          <span>以下產品您有興趣進一步了解或購買的是？<span style="font-size:0.88rem;color:#8f8068;font-weight:300;">（可複選）</span></span>
         </div>
         <div class="options-grid" id="q5-grid">
           <label class="option-row"><input type="checkbox" name="q5" value="保濕露"> 保濕露</label>
@@ -515,7 +484,7 @@
       <div class="question-card" id="card-q6">
         <div class="question-title">
           <span class="q-num">06</span>
-          <span>您未來在保養上最想改善的是？<span style="font-size:0.88rem;color:#aaa;font-weight:300;">（可複選）</span></span>
+          <span>您未來在保養上最想改善的是？<span style="font-size:0.88rem;color:#8f8068;font-weight:300;">（可複選）</span></span>
         </div>
         <div class="options-grid" id="q6-grid">
           <label class="option-row"><input type="checkbox" name="q6" value="乾燥缺水"> 乾燥缺水</label>
@@ -534,7 +503,7 @@
       <div class="question-card" id="card-q7">
         <div class="question-title">
           <span class="q-num">07</span>
-          <span>您對哪些主題的課程有興趣？<span style="font-size:0.88rem;color:#aaa;font-weight:300;">（可複選）</span></span>
+          <span>您對哪些主題的課程有興趣？<span style="font-size:0.88rem;color:#8f8068;font-weight:300;">（可複選）</span></span>
         </div>
         <div class="options-grid" id="q7-grid">
           <label class="option-row"><input type="checkbox" name="q7" value="進階肌膚保養"> 進階肌膚保養</label>
@@ -554,13 +523,13 @@
         </div>
       </div>
 
-      <!-- Q8 商機 -->
+      <!-- Q8 商機 — normalized, no special dark background -->
       <div class="business-section">
         <div class="section-label">事業機會</div>
         <div class="question-title">
           <span class="q-num">08</span>
           <span>你是否有興趣了解「把消費變收入」的方式？<span class="required-badge">必填</span><br>
-          <span style="font-size:0.88rem;color:#aaa;font-weight:300;">（像是自己買累積現金回饋，甚至發展成一份事業）</span></span>
+          <span style="font-size:0.88rem;color:#8f8068;font-weight:300;">（像是自己買累積現金回饋，甚至發展成一份事業）</span></span>
         </div>
         <div class="options">
           <label class="option-row"><input type="radio" name="q8"> 很有興趣，想進一步了解</label>
@@ -637,11 +606,11 @@
       const invitedEl = document.getElementById('invitedBy');
       [nameEl, invitedEl].forEach(el => {
         if (!el.value.trim()) {
-          el.style.borderBottomColor = '#c0392b';
+          el.style.borderBottomColor = '#b85c38';
           allValid = false;
           if (!firstError) firstError = el;
         } else {
-          el.style.borderBottomColor = '#8b4a5a';
+          el.style.borderBottomColor = '#b8955a';
         }
       });
 
@@ -652,7 +621,7 @@
         radios.forEach(r => {
           const row = r.closest('.option-row');
           if (!checked) {
-            row.style.borderColor = '#c0392b';
+            row.style.borderColor = '#b85c38';
             allValid = false;
             if (!firstError) firstError = r;
           } else {
@@ -714,7 +683,7 @@
       document.querySelector('.body').innerHTML = `
         <div style="text-align:center; padding: 60px 24px;">
           <div style="font-size:2.5rem; margin-bottom:24px;">✦</div>
-          <div style="font-family:'Cormorant Garamond',serif; font-size:1.8rem; font-weight:300; color:#8b4a5a; letter-spacing:4px; margin-bottom:16px;">
+          <div style="font-family:'Cormorant Garamond',serif; font-size:1.8rem; font-weight:300; color:#b8955a; letter-spacing:4px; margin-bottom:16px;">
             感謝您的回饋
           </div>
           <div style="color:#666; font-size:1rem; line-height:2; letter-spacing:1px;">
