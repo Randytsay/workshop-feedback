@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>肌膚保養工作坊｜課後回饋表</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Noto+Serif+TC:wght@300;400;600&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Serif TC', serif;
+      background: #3d2028;
+      min-height: 100vh;
+      padding: 24px 12px;
+      color: #2c2c2c;
+      font-size: 18px;
+    }
+
+    .container {
+      max-width: 640px;
+      margin: 0 auto;
+      background: #fdf7f7;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.4);
+    }
+
+    /* Header */
+    .header {
+      background: #8b4a5a;
+      padding: 48px 28px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 40px,
+        rgba(255,220,210,0.05) 40px,
+        rgba(255,220,210,0.05) 41px
+      );
+    }
+    .gold-line {
+      width: 48px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #e8c4b8, transparent);
+      margin: 0 auto 20px;
+    }
+    .header h1 {
+      font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
+      font-size: 2rem;
+      font-weight: 300;
+      color: #fdf0ec;
+      letter-spacing: 4px;
+      margin-bottom: 12px;
+      position: relative;
+    }
+    .header .subtitle {
+      font-size: 0.85rem;
+      color: #e8c4b8;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      position: relative;
+    }
+    .header p {
+      font-size: 1rem;
+      color: rgba(253,240,236,0.75);
+      line-height: 1.9;
+      position: relative;
+      font-weight: 300;
+    }
+    .gold-line-bottom {
+      width: 80px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #e8c4b8, transparent);
+      margin: 20px auto 0;
+    }
+
+    /* Body */
+    .body { padding: 36px 24px; }
+
+    /* Required badge */
+    .required-badge {
+      display: inline-block;
+      font-size: 0.78rem;
+      color: #8b4a5a;
+      border: 1px solid #8b4a5a;
+      padding: 2px 8px;
+      border-radius: 2px;
+      margin-left: 8px;
+      letter-spacing: 1px;
+      vertical-align: middle;
+      font-family: sans-serif;
+    }
+
+    /* Info Section */
+    .info-section {
+      margin-bottom: 36px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid #e8d8d8;
+    }
+    .section-label {
+      font-size: 0.78rem;
+      letter-spacing: 3px;
+      color: #8b4a5a;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, #e8c4b8, transparent);
+    }
+    .info-row { margin-bottom: 26px; }
+    .info-row:last-child { margin-bottom: 0; }
+    .info-row label {
+      display: block;
+      font-size: 0.88rem;
+      color: #999;
+      letter-spacing: 1.5px;
+      margin-bottom: 10px;
+      font-family: sans-serif;
+    }
+    .info-row input {
+      width: 100%;
+      border: none;
+      border-bottom: 1px solid #d4b8b8;
+      background: transparent;
+      padding: 10px 0;
+      font-size: 1.1rem;
+      color: #2c2c2c;
+      outline: none;
+      transition: border-color 0.3s;
+      font-family: 'Noto Serif TC', serif;
+    }
+    .info-row input:focus { border-bottom-color: #8b4a5a; }
+
+    /* Question Card */
+    .question-card {
+      margin-bottom: 32px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid #e8d8d8;
+    }
+
+    .question-title {
+      font-size: 1.08rem;
+      font-weight: 400;
+      color: #1a1a1a;
+      margin-bottom: 18px;
+      line-height: 1.75;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .q-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      color: #8b4a5a;
+      font-weight: 300;
+      flex-shrink: 0;
+      min-width: 26px;
+      padding-top: 1px;
+    }
+
+    /* Options */
+    .options { display: flex; flex-direction: column; gap: 10px; padding-left: 38px; }
+    .options-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      padding-left: 38px;
+    }
+
+    .option-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      cursor: pointer;
+      padding: 15px 18px;
+      border: 1px solid #e0cece;
+      background: #fff;
+      transition: all 0.25s;
+      font-size: 1rem;
+      color: #444;
+      user-select: none;
+      position: relative;
+      line-height: 1.5;
+    }
+    .option-row:hover {
+      border-color: #8b4a5a;
+      background: #fdf0f2;
+      color: #1a1a1a;
+    }
+    .option-row input[type="radio"],
+    .option-row input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      border: 1.5px solid #c0a0a0;
+      background: #fff;
+      flex-shrink: 0;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.2s;
+    }
+    .option-row input[type="radio"] { border-radius: 50%; }
+    .option-row input[type="radio"]:checked {
+      background: #8b4a5a;
+      border-color: #8b4a5a;
+      box-shadow: inset 0 0 0 4px #fff;
+    }
+    .option-row input[type="checkbox"]:checked {
+      background: #8b4a5a;
+      border-color: #8b4a5a;
+    }
+    .option-row input[type="checkbox"]:checked::after {
+      content: '';
+      position: absolute;
+      left: 4px; top: 1px;
+      width: 6px; height: 10px;
+      border: 2px solid #e8c4b8;
+      border-top: none;
+      border-left: none;
+      transform: rotate(45deg);
+    }
+
+    /* Other input */
+    .other-input {
+      display: none;
+      margin-top: 10px;
+      padding-left: 38px;
+    }
+    .other-input.visible { display: block; }
+    .other-input input {
+      width: 100%;
+      border: none;
+      border-bottom: 1.5px solid #8b4a5a;
+      background: transparent;
+      padding: 10px 0;
+      font-size: 1rem;
+      color: #2c2c2c;
+      outline: none;
+      font-family: 'Noto Serif TC', serif;
+    }
+    .other-input input::placeholder { color: #c0a0a0; font-size: 0.92rem; }
+
+    /* Business Section */
+    .business-section {
+      background: #8b4a5a;
+      margin: 0 -24px;
+      padding: 32px 24px;
+      margin-bottom: 32px;
+    }
+    .business-section .section-label { color: #e8c4b8; }
+    .business-section .section-label::after {
+      background: linear-gradient(90deg, rgba(232,196,184,0.4), transparent);
+    }
+    .business-section .question-title { color: #fdf0ec; }
+    .business-section .q-num { color: #e8c4b8; }
+    .business-section .option-row {
+      border-color: rgba(232,196,184,0.3);
+      background: rgba(255,255,255,0.06);
+      color: #f0ddd8;
+      font-size: 1rem;
+    }
+    .business-section .option-row:hover {
+      border-color: #e8c4b8;
+      background: rgba(232,196,184,0.15);
+      color: #fdf0ec;
+    }
+    .business-section .option-row input[type="radio"] {
+      border-color: rgba(232,196,184,0.6);
+      background: transparent;
+    }
+    .business-section .option-row input[type="radio"]:checked {
+      background: #e8c4b8;
+      border-color: #e8c4b8;
+      box-shadow: inset 0 0 0 4px #8b4a5a;
+    }
+    .business-section .required-badge {
+      border-color: rgba(232,196,184,0.7);
+      color: #e8c4b8;
+    }
+
+    /* Open Questions */
+    .open-section {
+      margin-bottom: 32px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid #e8d8d8;
+    }
+    .open-section textarea {
+      width: calc(100% - 38px);
+      margin-left: 38px;
+      border: 1px solid #e0cece;
+      background: #fff;
+      padding: 16px 18px;
+      font-size: 1rem;
+      color: #2c2c2c;
+      resize: vertical;
+      min-height: 96px;
+      outline: none;
+      font-family: 'Noto Serif TC', serif;
+      transition: border-color 0.3s;
+      line-height: 1.8;
+    }
+    .open-section textarea:focus { border-color: #8b4a5a; }
+
+    /* Sub question */
+    .sub-question {
+      font-size: 0.92rem;
+      color: #999;
+      letter-spacing: 0.5px;
+      margin-bottom: 14px;
+      padding-left: 38px;
+      margin-top: 22px;
+    }
+
+    /* Submit */
+    .submit-area { text-align: center; padding-top: 8px; }
+    .submit-btn {
+      display: inline-block;
+      padding: 20px 60px;
+      background: #8b4a5a;
+      color: #fdf0ec;
+      border: 1px solid #8b4a5a;
+      font-size: 1.05rem;
+      font-weight: 400;
+      cursor: pointer;
+      letter-spacing: 5px;
+      font-family: 'Noto Serif TC', serif;
+      transition: all 0.3s;
+    }
+    .submit-btn:hover {
+      background: #fdf0ec;
+      color: #8b4a5a;
+      border-color: #8b4a5a;
+    }
+
+    .footer {
+      background: #8b4a5a;
+      text-align: center;
+      font-size: 0.85rem;
+      color: rgba(232,196,184,0.7);
+      padding: 22px 24px;
+      letter-spacing: 2px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <div class="header">
+      <div class="gold-line"></div>
+      <div class="subtitle">Workshop Feedback</div>
+      <h1>肌膚保養工作坊</h1>
+      <p>感謝您今日的蒞臨與參與<br>您的回饋是我們持續精進的動力</p>
+      <div class="gold-line-bottom"></div>
+    </div>
+
+    <div class="body">
+
+      <!-- 基本資料 -->
+      <div class="info-section">
+        <div class="section-label">基本資料</div>
+        <div class="info-row">
+          <label>您的姓名 <span class="required-badge">必填</span></label>
+          <input type="text" id="name" placeholder="姓名或暱稱皆可">
+        </div>
+        <div class="info-row">
+          <label>帶您來的朋友 <span class="required-badge">必填</span></label>
+          <input type="text" id="invitedBy" placeholder="請填寫朋友姓名">
+        </div>
+      </div>
+
+      <!-- Q1 -->
+      <div class="question-card">
+        <div class="question-title">
+          <span class="q-num">01</span>
+          <span>今天使用的產品，您的整體感受是？<span class="required-badge">必填</span></span>
+        </div>
+        <div class="options">
+          <label class="option-row"><input type="radio" name="q1"> 超喜歡，想買！</label>
+          <label class="option-row"><input type="radio" name="q1"> 還不錯，想再試試</label>
+          <label class="option-row"><input type="radio" name="q1"> 普通，需要多了解</label>
+          <label class="option-row"><input type="radio" name="q1"> 不太適合我</label>
+        </div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="question-card">
+        <div class="question-title">
+          <span class="q-num">02</span>
+          <span>今天的課程，是否讓您更了解「清潔＋保濕」的重要性？<span class="required-badge">必填</span></span>
+        </div>
+        <div class="options">
+          <label class="option-row"><input type="radio" name="q2"> 非常了解，收穫很多！</label>
+          <label class="option-row"><input type="radio" name="q2"> 有幫助，有新的認識</label>
+          <label class="option-row"><input type="radio" name="q2"> 普通</label>
+          <label class="option-row"><input type="radio" name="q2"> 不太清楚</label>
+        </div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="question-card">
+        <div class="question-title">
+          <span class="q-num">03</span>
+          <span>老師的教學方式您覺得如何？<span class="required-badge">必填</span></span>
+        </div>
+        <div class="options">
+          <label class="option-row"><input type="radio" name="q3"> 非常清楚好懂</label>
+          <label class="option-row"><input type="radio" name="q3"> 還不錯</label>
+          <label class="option-row"><input type="radio" name="q3"> 普通</label>
+          <label class="option-row"><input type="radio" name="q3"> 聽不太懂</label>
+        </div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="question-card">
+        <div class="question-title">
+          <span class="q-num">04</span>
+          <span>現場實際操作（保養體驗）對您來說有幫助嗎？<span class="required-badge">必填</span></span>
+        </div>
+        <div class="options">
+          <label class="option-row"><input type="radio" name="q4"> 非常有感！</label>
+          <label class="option-row"><input type="radio" name="q4"> 有幫助</label>
+          <label class="option-row"><input type="radio" name="q4"> 普通</label>
+          <label class="option-row"><input type="radio" name="q4"> 沒什麼感覺</label>
+        </div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="question-card">
+        <div class="question-title">
+          <span class="q-num">05</span>
+          <span>以下產品您有興趣進一步了解或購買的是？<span style="font-size:0.88rem;color:#aaa;font-weight:300;">（可複選）</span></span>
+        </div>
+        <div class="options-grid">
+          <label class="option-row"><input type="checkbox"> 保濕露</label>
+          <label class="option-row"><input type="checkbox"> 潔膚乳</label>
+          <label class="option-row"><input type="checkbox"> 火山泥面膜</label>
+          <label class="option-row"><input type="checkbox"> NAD青春霜</label>
+          <label class="option-row"><input type="checkbox"> 小黑卸妝棉</label>
+          <label class="option-row"><input type="checkbox" id="q5-other-cb" onchange="toggleOther('q5-other-cb','q5-other-input')"> 其他</label>
+        </div>
+        <div class="other-input" id="q5-other-input">
+          <input type="text" placeholder="請輸入其他產品名稱...">
+        </div>
+      </div>
+
+      <!-- Q6 -->
+      <div class="question-card">
+        <div class="question-title">
+          <span class="q-num">06</span>
+          <span>您未來在保養上最想改善的是？<span style="font-size:0.88rem;color:#aaa;font-weight:300;">（可複選）</span></span>
+        </div>
+        <div class="options-grid">
+          <label class="option-row"><input type="checkbox"> 乾燥缺水</label>
+          <label class="option-row"><input type="checkbox"> 出油不穩</label>
+          <label class="option-row"><input type="checkbox"> 粉刺痘痘</label>
+          <label class="option-row"><input type="checkbox"> 暗沉</label>
+          <label class="option-row"><input type="checkbox"> 敏感泛紅</label>
+          <label class="option-row"><input type="checkbox" id="q6-other-cb" onchange="toggleOther('q6-other-cb','q6-other-input')"> 其他</label>
+        </div>
+        <div class="other-input" id="q6-other-input">
+          <input type="text" placeholder="請輸入其他肌膚困擾...">
+        </div>
+      </div>
+
+      <!-- Q7 -->
+      <div class="question-card">
+        <div class="question-title">
+          <span class="q-num">07</span>
+          <span>您對哪些主題的課程有興趣？<span style="font-size:0.88rem;color:#aaa;font-weight:300;">（可複選）</span></span>
+        </div>
+        <div class="options-grid">
+          <label class="option-row"><input type="checkbox"> 進階肌膚保養</label>
+          <label class="option-row"><input type="checkbox"> 彩妝技巧</label>
+          <label class="option-row"><input type="checkbox"> AI 工具應用</label>
+          <label class="option-row"><input type="checkbox"> 健康養生講座</label>
+          <label class="option-row"><input type="checkbox" id="q7-other-cb" onchange="toggleOther('q7-other-cb','q7-other-input')"> 其他</label>
+        </div>
+        <div class="other-input" id="q7-other-input">
+          <input type="text" placeholder="請輸入其他感興趣的主題...">
+        </div>
+        <div class="sub-question">您願意再次參加工作坊嗎？</div>
+        <div class="options">
+          <label class="option-row"><input type="radio" name="q7b"> 願意，覺得很值得</label>
+          <label class="option-row"><input type="radio" name="q7b"> 視主題與價格而定</label>
+          <label class="option-row"><input type="radio" name="q7b"> 目前暫不考慮</label>
+        </div>
+      </div>
+
+      <!-- Q8 商機 -->
+      <div class="business-section">
+        <div class="section-label">事業機會</div>
+        <div class="question-title">
+          <span class="q-num">08</span>
+          <span>你是否有興趣了解「把消費變收入」的方式？<span class="required-badge">必填</span><br> <span style="font-size:0.88rem;color:#aaa;font-weight:300;">（像是自己買累積現金回饋，甚至發展成一份事業）</span></span>
+        </div>
+        <div class="options">
+          <label class="option-row"><input type="radio" name="q8"> 很有興趣，想進一步了解</label>
+          <label class="option-row"><input type="radio" name="q8"> 有點好奇，可以多聽聽</label>
+          <label class="option-row"><input type="radio" name="q8"> 目前暫不考慮</label>
+        </div>
+      </div>
+
+      <!-- Q9 -->
+      <div class="open-section">
+        <div class="question-title">
+          <span class="q-num">09</span>
+          <span>今天最讓您印象深刻的是什麼？</span>
+        </div>
+        <textarea placeholder="請自由填寫..."></textarea>
+      </div>
+
+      <!-- Q10 -->
+      <div class="open-section" style="border-bottom:none; margin-bottom:24px;">
+        <div class="question-title">
+          <span class="q-num">10</span>
+          <span>有什麼話想對我們說的嗎？</span>
+        </div>
+        <textarea placeholder="任何建議或鼓勵都歡迎 ✦"></textarea>
+      </div>
+
+      <div class="submit-area">
+        <button class="submit-btn" onclick="validateForm()">送 出 回 饋</button>
+      </div>
+
+    </div>
+
+    <div class="footer">✦ &nbsp; 感謝您撥冗填寫，期待與您再次相遇 &nbsp; ✦</div>
+  </div>
+
+  <script>
+    function toggleOther(cbId, inputId) {
+      const cb = document.getElementById(cbId);
+      const input = document.getElementById(inputId);
+      if (cb.checked) {
+        input.classList.add('visible');
+        input.querySelector('input').focus();
+      } else {
+        input.classList.remove('visible');
+        input.querySelector('input').value = '';
+      }
+    }
+
+    function validateForm() {
+      let allValid = true;
+      let firstError = null;
+
+      const nameEl = document.getElementById('name');
+      const invitedEl = document.getElementById('invitedBy');
+      [nameEl, invitedEl].forEach(el => {
+        if (!el.value.trim()) {
+          el.style.borderBottomColor = '#c0392b';
+          allValid = false;
+          if (!firstError) firstError = el;
+        } else {
+          el.style.borderBottomColor = '#8b4a5a';
+        }
+      });
+
+      ['q1','q2','q3','q4','q8'].forEach(name => {
+        const radios = document.querySelectorAll(`input[name="${name}"]`);
+        const checked = Array.from(radios).some(r => r.checked);
+        radios.forEach(r => {
+          const row = r.closest('.option-row');
+          if (!checked) {
+            row.style.borderColor = '#c0392b';
+            allValid = false;
+            if (!firstError) firstError = r;
+          } else {
+            row.style.borderColor = '';
+          }
+        });
+      });
+
+      if (!allValid) {
+        firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        alert('請完成所有必填項目後再送出 ✦');
+      } else {
+        alert('感謝您的回饋！期待與您再次相遇 ✦');
+      }
+    }
+  </script>
+</body>
+</html>
